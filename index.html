@@ -106,9 +106,19 @@
 			
 			<div class="main"></button>
 				<div class="options"></button>
-					<h3>Location Transfer - Star Cab Bot 🚕</h3>
-					<br>
+					<h3>Location Transfer - Star Cab Service Bot 🚕</h3>
+					<label>
+						Info:
+						<br>
+						Make sure: 1. Multiplayer is enabled, 2. Anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
+						<br>
+						Once you click the 'Start Location Transfer' button the taxi will join your game after queue time and announce it in the game chat.
+						<br>
+						Then you will have 1 minute time to leave the Anomaly/Nexus. On exiting a new option appears to join the taxis system.
+					</label>
 					
+					<hr>
+					<br><br>
 					<label>Friend Code </label>
 					<input type="text" id="FriendCode" name="FriendCode" size="30" placeholder="XXXX-XXXX-XXXXX"></button>
 					
@@ -410,10 +420,17 @@
 					
 					<br><br><br>
 					
-					<button type="button" id="CreateBotCommand">Create Bot Command &amp; Copy</button> 
-					<input type="text" id="CommandBox" name="CommandBox" size="50" readonly="">
-					<button type="button" id="StartLocationTransfer">Start location transfer</button>
+					<!-- <button type="button" id="CreateBotCommand">Create Bot Command &amp; Copy</button>  -->
+					<button type="button" id="StartLocationTransfer">Start Location Transfer</button>
+					<input hidden type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
+					<a id="status" style="color:red">Status: Waiting for your Task.</a>
 					
+					
+					<br><br><br>
+					<hr>
+					<label><a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord Community</a></label>
+					<br><br>
+					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
 				</div>
 			</div>
 		</div>
@@ -468,7 +485,7 @@
 			document.getElementById("CommandBox").value = Command
 			navigator.clipboard.writeText(Command)
 			return Command
-		} document.getElementById("CreateBotCommand").addEventListener("click", CreateCommand);
+		} //document.getElementById("CreateBotCommand").addEventListener("click", CreateCommand);
 		
 
 		
@@ -482,9 +499,13 @@
 			});
 			
 			if (response.ok) {
-				
+				document.getElementById("CommandBox").value = "Transfer action queued. Please wait."
+				document.getElementById("status").innerHTML = "Transfer action queued. Please wait."
+				document.getElementById("StartLocationTransfer").disabled = true
+				SetQueueTime()
 			} else { 
 				document.getElementById("CommandBox").value = "Error sending action to bot."
+				document.getElementById("status").innerHTML = "Error sending action to bot."
 			}
 		}
 		
@@ -501,12 +522,56 @@
 				}
 			} else {
 				document.getElementById("CommandBox").value = "Error: Enter valid friend code and full portal adress"
+				document.getElementById("status").innerHTML = "Error: Enter valid friend code and full portal adress"
 			}
 		}
 		
 		document.getElementById("StartLocationTransfer").addEventListener("click", SendToDiscordChannel);
-			
-			
+		
+		const UserID = (Math.floor(Math.random() * 100000000000)).toString()//localStorage.getItem("UserID");
+		if (!UserID) {
+			UserID = (Math.floor(Math.random() * 100000000000)).toString()
+			localStorage.setItem("UserID", UserID);
+		}
+		
+		var QueueTime = 0
+		var InSystemWaitTime = 60
+		var QueueTimeRefreshRoutine
+		
+		async function SetQueueTime() {
+			const RelayUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent("https://gist.github.com/MetaIdea/5233ac8e1beb92bb629328744d007c8d/raw") + '&rand=' + Math.random();
+			QueueTime = parseInt((await (await fetch(RelayUrl)).json()).contents)
+			document.getElementById("status").innerHTML = "Transfer action queued. Please wait. " + "Queue time: " + QueueTime
+			QueueTimeRefreshRoutine = setInterval(function(){RefreshQueueTime()}, 1000)
+		}
+		
+		function RefreshQueueTime() {
+			QueueTime = QueueTime - 1
+			if (QueueTime > 0) {
+				document.getElementById("status").innerHTML = "Transfer action queued. Please wait. " + "Queue time: " + QueueTime
+			} else {
+				clearInterval(QueueTimeRefreshRoutine)
+				document.getElementById("status").innerHTML = ""
+				document.getElementById("CommandBox").value = "Taxi is waiting. Leave the Anomaly/Nexus."
+				QueueTimeRefreshRoutine = setInterval(function(){RefreshInSystemWaitTime()}, 1000)
+				document.getElementById("status").innerHTML = "Taxi is waiting. Leave the Anomaly/Nexus now. Time remaining: " + InSystemWaitTime
+				document.getElementById("status").style.color = "green"
+			}
+		}
+		
+		function RefreshInSystemWaitTime() {
+			InSystemWaitTime = InSystemWaitTime - 1
+			if (InSystemWaitTime > 0) {
+				document.getElementById("status").innerHTML = "Taxi is waiting. Leave the Anomaly/Nexus now. Time remaining: " + InSystemWaitTime
+			} else {
+				clearInterval(QueueTimeRefreshRoutine)
+				InSystemWaitTime = 60
+				document.getElementById("StartLocationTransfer").disabled = false
+				document.getElementById("status").innerHTML = "Taxi left the game. We hope you had a good transfer."
+				document.getElementById("status").style.color = "red"
+				document.getElementById("CommandBox").value = "Taxi left the game. We hope you had a good transfer."
+			}
+		}
 		
 		function SetupMobileVersion() {
 			if( /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
