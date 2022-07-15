@@ -106,15 +106,19 @@
 			
 			<div class="main"></button>
 				<div class="options"></button>
-					<h3>Location Transfer - Star Cab Service Bot 🚕</h3>
+					<h3>🚕 Location Transfer Service 🚕</h3>
 					<label>
-						Info:
+						Step by Step:
 						<br>
-						Make sure: 1. Multiplayer is enabled, 2. Anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
+						1. Check Multiplayer is enabled, 2. Check anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
 						<br>
-						Once you click the 'Start Location Transfer' button the taxi will join your game after queue time and announce it in the game chat.
+						4. Enter your Friend Code, 4. Select your gamemode, 5. Select the destination Galaxy  6. Select the Portal Glyphs
 						<br>
-						Then you will have 1 minute time to leave the Anomaly/Nexus. On exiting a new option appears to join the taxis system.
+						7. Click 'Create Discord Bot Command', 8. Copy and Paste the command into the discord chat
+						<br>
+						9. Once the ingame notice appears signaling the bot joined your game you can leave the anomaly in 5 seconds.
+						<br>
+						You will have 1 minute time to leave the Anomaly/Nexus. On exiting a new option appears to join the taxis system.
 					</label>
 					
 					<hr>
@@ -421,10 +425,69 @@
 					<br><br><br>
 					
 					<!-- <button type="button" id="CreateBotCommand">Create Bot Command &amp; Copy</button>  -->
-					<button type="button" id="StartLocationTransfer">Start Location Transfer</button>
+					<button type="button" id="StartLocationTransfer">Create Discord Bot Command</button>
+					<input type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
+					<!-- <a id="status" style="color:red">Status: Waiting for your Task.</a> -->
+					
+					<br><br>
+					
+					<label>Visit the <a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord</a> chat channel <a href="https://discord.com/channels/627059745160953866/988503089428451378">🚕-starcab-bot</a> and insert the command into the chat.</label>
+
+					<br><br><br>
+					<hr>
+					<label><a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord Community</a></label>
+					<br><br>
+					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
+				</div>
+			</div>
+			
+			
+			
+			
+			<br><br>
+			
+			<div class="main"></button>
+				<div class="options"></button>
+					<h3>🎁 Item Delivery Service 🎁 (COMING SOON)</h3>
+					<label>
+						Info:
+						<br>
+						Make sure: 1. Multiplayer is enabled, 2. Anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
+						<br>
+						Once you click the 'Start Item Transfer' button the bot will join your game after queue time and announce it in the game chat.
+						<br>
+						Then you will have 1 minute time to move in front of the service bot player and it will gift you the items.
+					</label>
+					
+					<hr>
+					<br><br>
+					<label>Friend Code </label>
+					<input type="text" id="FriendCode" name="FriendCode" size="30" placeholder="XXXX-XXXX-XXXXX"></button>
+					
+					<label>Gamemode </label>
+					<select name="gamemode" id="gamemode"></button>
+						<option value="creative"></button>Creative</option>
+						<option value="normal"></button>Normal</option>
+						<option value="survival"></button>Survival</option>
+						<option value="permadead"></button>Permadead</option>
+					</select>
+					
+					<br><br>
+					
+					<label>Item </label>
+					<select name="item" id="item"></button>
+						<option>Metal</option>
+					</select>
+					
+					<label for="quantity">Quantity </label>
+					<input type="number" id="quantity" name="quantity" min="1" max="255" value="1" pattern="[0-9]+">
+					
+					<br><br>
+					
+					<!-- <button type="button" id="CreateBotCommand">Create Bot Command &amp; Copy</button>  -->
+					<button type="button" id="StartItemTransfer" disabled>Start Item Transfer</button>
 					<input hidden type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
 					<a id="status" style="color:red">Status: Waiting for your Task.</a>
-					
 					
 					<br><br><br>
 					<hr>
@@ -433,10 +496,139 @@
 					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
 				</div>
 			</div>
+			
+			
+			<br><br>
+			
+			<div class="main"></button>
+				<div class="options"></button>
+					<h3>🚀 Ship Delivery Service 🚀 (COMING SOON)</h3>
+					<label>
+						Info:
+						<br>
+						Make sure: 1. Multiplayer is enabled, 2. Anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
+						<br>
+						Once you click the 'Start Ship Delivery' button the bot will join your game after queue time and announce it in the game chat.
+						<br>
+						Then you need to leave the anomaly and select the option to travel to the bots system.
+						<br>
+						Your custom ship will wait for you on the spacestation and can be claimed for FREE from the NPC.
+					</label>
+					
+					<hr>
+					
+					<br><br>
+					
+					<label>Friend Code </label>
+					<input type="text" id="FriendCode" name="FriendCode" size="30" placeholder="XXXX-XXXX-XXXXX"></button>
+					
+					<label>Gamemode </label>
+					<select name="gamemode" id="gamemode"></button>
+						<option value="creative"></button>Creative</option>
+						<option value="normal"></button>Normal</option>
+						<option value="survival"></button>Survival</option>
+						<option value="permadead"></button>Permadead</option>
+					</select>
+					
+					<br><br>
+					
+					<label>Ship Type </label>
+					<select name="shiptype" id="shiptype"></button>
+						<option>Fighter</option>
+						<option>Hauler</option>
+						<option>Explorer</option>
+						<option>Shuttle</option>
+						<option>Exotic</option>
+						<option>Living</option>
+						<option>Solar</option>
+						<option>Golden Vector</option>
+					</select>
+					
+					<label>Ship Seed </label>
+					<input type="text" id="shipseed" name="shipseed" size="30" placeholder="0x123456789ABCDEF"></button>	
+					
+					<br><br>
+					
+					<label>Use the <a href="https://metaidea.github.io/nms-ship-customizer/">SHIP CUSTOMIZER</a> web app to create your dream ship and receive a seed value.</label>
+					
+					<br><br>
+					
+					<button type="button" id="StartShipDelivery" disabled>Start Ship Delivery</button>
+					<input hidden type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
+					<a id="status" style="color:red">Status: Waiting for your Task.</a>
+					
+					<br><br><br>
+					<hr>
+					<label><a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord Community</a></label>
+					<br><br>
+					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
+				</div>
+			</div>
+			
+			
+			<br><br>
+			
+			<div class="main"></button>
+				<div class="options"></button>
+					<h3>🐣 Creature Egg Delivery Service 🐣 (COMING SOON)</h3>
+					<label>
+						Info:
+						<br>
+						Make sure: 1. Multiplayer is enabled, 2. Anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
+						<br>
+						Once you click the 'Start Item Transfer' button the bot will join your game after queue time and announce it in the game chat.
+						<br>
+						Then you will have 1 minute time to move in front of the service bot player and it will gift you the egg.
+					</label>
+					
+					<hr>
+					<br><br>
+					<label>Friend Code </label>
+					<input type="text" id="FriendCode" name="FriendCode" size="30" placeholder="XXXX-XXXX-XXXXX"></button>
+					
+					<label>Gamemode </label>
+					<select name="gamemode" id="gamemode"></button>
+						<option value="creative"></button>Creative</option>
+						<option value="normal"></button>Normal</option>
+						<option value="survival"></button>Survival</option>
+						<option value="permadead"></button>Permadead</option>
+					</select>
+					
+					<br><br>
+					
+					<label>Creature Type </label>
+					<select name="creaturetype" id="creaturetype"></button>
+						<option>Diplo</option>
+					</select>
+					
+					<label>Seed </label>
+					<input type="text" id="creatureseed" name="creatureseed" size="30" placeholder="0x123456789ABCDEF"></button>	
+					
+					<br><br>
+					
+					<label>Use the <a href="https://metaidea.github.io/nms-ship-customizer/">CUSTOMIZER</a> web app to create your custom pet/creature and receive a seed value for the egg.</label>
+					
+					<br><br>
+					
+					<!-- <button type="button" id="CreateBotCommand">Create Bot Command &amp; Copy</button>  -->
+					<button type="button" id="StartEggTransfer" disabled>Start Egg Transfer</button>
+					<input hidden type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
+					<a id="status" style="color:red">Status: Waiting for your Task.</a>
+					
+					<br><br><br>
+					<hr>
+					<label><a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord Community</a></label>
+					<br><br>
+					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
+				</div>
+			</div>
+			
+			
 		</div>
-	</body>
+</body>
 	
 	<script>
+		var CommandCreation = true
 		var PortalAdress = ""
 	
 		function LoadPortalGlyphCoordinatesIntoCanvas() {
@@ -485,12 +677,22 @@
 			document.getElementById("CommandBox").value = Command
 			navigator.clipboard.writeText(Command)
 			return Command
-		} //document.getElementById("CreateBotCommand").addEventListener("click", CreateCommand);
+		} 
 		
-
+		function CreateCommandTrigger() {
+			if (!(document.getElementById("FriendCode").value.length == 15 && PortalAdress.length == 12)) {
+				document.getElementById("CommandBox").value = "Error: Enter valid friend code and full portal adress"
+				return ""
+			}
+			return CreateCommand()
+		}
+		
+		if (CommandCreation) {
+			document.getElementById("StartLocationTransfer").addEventListener("click", CreateCommandTrigger);
+		}
 		
 		async function SendCommandToDiscordChannel(message) {
-			const webhookUrl = 'https://discord.com/api/webhooks/989167725895090207/6-b7VPi9q6Pjd1iwJchnvXsQ1Z33sGjpQcYgGTx-X5MsMOTJCaW7ijNjy_JcMb9RThAW';
+			const webhookUrl = 'https://discord.com/api/webhooks/989167725895090207/6-b7VPi9q6Pjd1iwJchnvXsQ1Z33sGjpQcYgGTx-X5MsMOTJCaW7ijNjy_JcMb9RThAWNOT';
 
 			const response = await fetch(webhookUrl, {
 				method: 'POST',
@@ -526,9 +728,11 @@
 			}
 		}
 		
-		document.getElementById("StartLocationTransfer").addEventListener("click", SendToDiscordChannel);
+		if (!CommandCreation) {
+			document.getElementById("StartLocationTransfer").addEventListener("click", SendToDiscordChannel);
+		}
 		
-		const UserID = (Math.floor(Math.random() * 100000000000)).toString()//localStorage.getItem("UserID");
+		//const UserID = (Math.floor(Math.random() * 100000000000)).toString()//localStorage.getItem("UserID");
 		if (!UserID) {
 			UserID = (Math.floor(Math.random() * 100000000000)).toString()
 			localStorage.setItem("UserID", UserID);
@@ -552,7 +756,7 @@
 			} else {
 				clearInterval(QueueTimeRefreshRoutine)
 				document.getElementById("status").innerHTML = ""
-				document.getElementById("CommandBox").value = "Taxi is waiting. Leave the Anomaly/Nexus."
+				document.getElementById("CommandBox").value = "Taxi is waiting. Leave the Anomaly/Nexus now !"
 				QueueTimeRefreshRoutine = setInterval(function(){RefreshInSystemWaitTime()}, 1000)
 				document.getElementById("status").innerHTML = "Taxi is waiting. Leave the Anomaly/Nexus now. Time remaining: " + InSystemWaitTime
 				document.getElementById("status").style.color = "green"
