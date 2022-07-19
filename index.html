@@ -627,9 +627,7 @@
 		}
 		
 		async function SendCommandToRelayChannel(botcommand,ticketcode,ticketboxid) {
-			const webhookUrl = 'https://discord.com/api/webhooks/981700833479626782/K321kOVJuULfD_drCgwWJXRqQrMJ6XjP3JzV4yVTVrOKCrTdDp3uT33mcuxgeRMvOBqT';
-
-			const response = await fetch(webhookUrl, {
+			const response = await fetch(atob('aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvOTgxNzAwODMzNDc5NjI2NzgyL0szMjFrT1ZKdVVMZkRfZHJDZ3dXSlhScVFyTUo2WGpQM0p6VjR5VlRWck9LQ3JUZERwM3VUMzNtY3V4Z2VSTXZPQnFU'), {
 				method: 'POST',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({content: "userid:" + UserID + "," + botcommand}),
@@ -644,9 +642,45 @@
 				document.getElementById(ticketboxid).value = "Error creating ticket code, retry."
 			}
 		}
+
+		
+		if (localStorage.getItem("UserID")) {
+			var UserID = localStorage.getItem("UserID")
+		} else {
+			var UserID = (Math.floor(Math.random() * 100000000000)).toString()
+			localStorage.setItem("UserID", UserID);
+		}
+		
+		if (localStorage.getItem("FriendcodeCached")) {
+			document.getElementById("friendcode").value = localStorage.getItem("FriendcodeCached")
+		}
+		
+		if (localStorage.getItem("GamemodeCached")) {
+			document.getElementById("gamemode").value = localStorage.getItem("GamemodeCached")
+		}
+		
+		function SetupMobileVersion() {
+			if( /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				document.getElementById("PatreonImg").style.display = 'none'
+				document.getElementById("DiscordImg").style.display = 'none'
+			}		
+		} SetupMobileVersion()
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		async function SendCommandToDiscordChannel(message) {
-			const webhookUrl = 'https://discord.com/api/webhooks/989167725895090207/6-b7VPi9q6Pjd1iwJchnvXsQ1Z33sGjpQcYgGTx-X5MsMOTJCaW7ijNjy_JcMb9RThAW';
+			const webhookUrl = '';
 
 			const response = await fetch(webhookUrl, {
 				method: 'POST',
@@ -685,22 +719,7 @@
 		if (!CommandCreation) {
 			document.getElementById("StartLocationTransfer").addEventListener("click", SendToDiscordChannel);
 		}
-		
-		if (localStorage.getItem("UserID")) {
-			var UserID = localStorage.getItem("UserID")
-		} else {
-			var UserID = (Math.floor(Math.random() * 100000000000)).toString()
-			localStorage.setItem("UserID", UserID);
-		}
-		
-		if (localStorage.getItem("FriendcodeCached")) {
-			document.getElementById("friendcode").value = localStorage.getItem("FriendcodeCached")
-		}
-		
-		if (localStorage.getItem("GamemodeCached")) {
-			document.getElementById("gamemode").value = localStorage.getItem("GamemodeCached")
-		}
-		
+
 		var QueueTime = 0
 		var InSystemWaitTime = 60
 		var QueueTimeRefreshRoutine
@@ -739,13 +758,6 @@
 				document.getElementById("CommandBox").value = "Taxi left the game. We hope you had a good transfer."
 			}
 		}
-		
-		function SetupMobileVersion() {
-			if( /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-				document.getElementById("PatreonImg").style.display = 'none'
-				document.getElementById("DiscordImg").style.display = 'none'
-			}		
-		} SetupMobileVersion()
 	</script>
 	
 
