@@ -73,8 +73,24 @@
 			}
 
 			.options {
+				flex-direction: column;
+				min-width: 800px;
+				max-width: 1154px;
+				margin: 0 auto 60px;
+				
 				border-style: solid;
 				border-color: #ff8400;
+				padding: 5px;
+			}
+			
+			.setup {
+				flex-direction: column;
+				min-width: 800px;
+				max-width: 1154px;
+				margin: 0 auto 60px;
+				
+				border-style: solid;
+				border-color: green;
 				padding: 5px;
 			}
 			
@@ -87,7 +103,7 @@
 	</head>
 	
 	<body>
-		<h2 class="header">No Man's Sky - Service App - Fully automated bot actions - By Mjstral aka Meta-Idea</h2>
+		<h2 class="header" style="text-align: center;">No Man's Sky - Service App - Fully automated bot actions<br>By Mjstral aka Meta-Idea</h2>
 							
 		<div class="social-links">
 			<a href="https://discord.gg/AEXcap6" target="_blank">
@@ -105,26 +121,25 @@
 			<br><br><br><br>
 			
 			<div class="main">
-				<div class="options">
-					<h3>🚕 Location Transfer Service 🚕</h3>
-					<label>
-						Step by Step:
-						<br>
-						1. Check Multiplayer is enabled, 2. Check anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
-						<br>
-						4. Enter your Friend Code, 4. Select your gamemode, 5. Select the destination Galaxy  6. Select the Portal Glyphs
-						<br>
-						7. Click 'Create Discord Bot Command', 8. Copy and Paste the command into the discord chat
-						<br>
-						9. Once the ingame notice appears signaling the bot joined your game you can leave the anomaly in 5 seconds.
-						<br>
-						You will have 1 minute time to leave the Anomaly/Nexus. On exiting a new option appears to join the taxis system.
-					</label>
-					
+				<div class="setup">
+					<h3>✅ Setup ✅</h3>
+
 					<hr>
-					<br><br>
+					
+					<h4>
+						<label>
+							Info: To use the services you create a ticket code with this web app.
+							<br>
+							You copy and paste this number into the discord chat channel <a href="https://discord.gg/2eKQfTyrMX">🤖nms-service-bot</a>.
+							<br>
+							The bot will join your game session and the service will be executed. Very simple.
+						</label>
+					</h4>
+					
+					<hr><br>
+					
 					<label>Friend Code </label>
-					<input type="text" id="FriendCode" name="FriendCode" size="30" placeholder="XXXX-XXXX-XXXXX">
+					<input type="text" id="friendcode" name="friendcode" size="30" placeholder="XXXX-XXXX-XXXXX">
 					
 					<label>Gamemode </label>
 					<select name="gamemode" id="gamemode">
@@ -134,8 +149,47 @@
 						<option value="permadead">Permadead</option>
 					</select>
 					
-					<br><br><br>
+					<br><br>
 					
+					<input type="checkbox" id="checkbox_game_ready" name="checkbox_game_ready">
+					<label for="checkbox_game_ready"> Confirm your game is open and you are waiting in the multiplayer hub (anomaly/nexus).</label><br>
+					
+					<br>
+					
+					<input type="checkbox" id="checkbox_mp_enabled" name="checkbox_mp_enabled">
+					<label for="checkbox_mp_enabled"> Confirm multiplayer is enabled and anyone can join your game.</label><br>
+					
+					<br><hr><br>
+					
+					<label>Join our friendly discord community <a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub</a></label>
+					<br><br>
+					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
+					<br><br>
+				</div>
+			</div>
+
+			
+			<div class="main">
+				<div class="options">
+					<h3>🚕 Location Transfer Service 🚕</h3>
+					
+					<hr>
+					
+					<h4>
+						<label>
+							Info: Enter your custom destination galaxy and portal glyph adress or use a predefined location from the list.
+							<br>
+							Once the bot joined your lobby when it's name appears on the screen you can leave the anomaly after 10 seconds.
+							<br>
+							On exiting the anomaly a new option appears to join the bots system which is your destination. Done.
+							<br>
+							You can travel to any system and galaxy including hidden phantom and shadow stars.
+						</label>
+					</h4>
+					
+					<hr>
+					<br>
+
 					<label>Select Location </label>
 					<select name="PortalAdressBook" id="PortalAdressBook"></select>
 					
@@ -177,54 +231,30 @@
 					<br><br>
 					
 					<!-- <button type="button" id="CreateBotCommand">Create Bot Command &amp; Copy</button>  -->
-					<button type="button" id="StartLocationTransfer">Create Discord Bot Command</button>
-					<input type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
+					<button type="button" id="StartLocationTransfer">Create Ticket</button>
+					<input type="text" id="TicketBoxLocationTransfer" name="CommandBox" size="50" readonly="" placeholder="">
 					<!-- <a id="status" style="color:red">Status: Waiting for your Task.</a> -->
 					
 					<br><br>
-					
-					<label>Visit the <a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord</a> chat channel <a href="https://discord.com/channels/627059745160953866/988503089428451378">🚕-starcab-bot</a> and insert the command into the chat.</label>
-
-					<br><br><br>
-					<hr>
-					<label><a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord Community</a></label>
-					<br><br>
-					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
 				</div>
 			</div>
 			
 			
-			
-			
-			<br><br>
-			
 			<div class="main">
 				<div class="options">
 					<h3>🎁 Item Delivery Service 🎁</h3>
-					<label>
-						Info:
-						<br>
-						Make sure: 1. Multiplayer is enabled, 2. Anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
-						<br>
-						Once you click the 'Start Item Transfer' button the bot will join your game after queue time and announce it in the game chat.
-						<br>
-						Then you will have 1 minute time to move in front of the service bot player and it will gift you the items.
-					</label>
+					<hr>
+					
+					<h4>
+						<label>
+							Info: Wait until the bot physically spawns at the docking areas backside balcony in the nexus/anomaly.
+							<br>
+							Make sure to be as close as possible to the bot. It will send you all items and leave. Done.
+						</label>
+					</h4>
 					
 					<hr>
-					<br><br>
-					<label>Friend Code </label>
-					<input type="text" id="FriendCode2" name="FriendCode" size="30" placeholder="XXXX-XXXX-XXXXX">
-					
-					<label>Gamemode </label>
-					<select name="gamemode" id="gamemode2">
-						<option value="creative">Creative</option>
-						<option value="normal">Normal</option>
-						<option value="survival">Survival</option>
-						<option value="permadead">Permadead</option>
-					</select>
-					
-					<br><br>
+					<br>
 					
 					<label>Item </label>
 					<select name="item" id="item">
@@ -238,60 +268,33 @@
 					
 					<br><br>
 					
-					<button type="button" id="StartItemTransfer">Create Discord Bot Command</button>
-					<input type="text" id="CommandBox2" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
+					<button type="button" id="StartItemTransfer">Create Ticket</button>
+					<input type="text" id="TicketBoxItemTransfer" name="CommandBox" size="50" readonly="" placeholder="">
 					
 					<br><br>
-					
-					<label>Visit the <a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord</a> chat channel <a href="https://discord.com/channels/627059745160953866/988503143493013654">🎁-item-trader-bot</a> and insert the command into the chat.</label>
-					
-					<!-- <button type="button" id="CreateBotCommand">Create Bot Command &amp; Copy</button>  -->
-					<!-- <button type="button" id="StartItemTransfer" disabled>Start Item Transfer</button> -->
-					<!-- <input hidden type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task."> -->
-					<!-- <a id="status" style="color:red">Status: Waiting for your Task.</a> -->
-					
-					<br><br><br>
-					<hr>
-					<label><a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord Community</a></label>
-					<br><br>
-					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
+
 				</div>
 			</div>
 			
 			
-			<br><br>
-			
 			<div class="main">
 				<div class="options">
 					<h3>🚀 Ship Delivery Service 🚀 (COMING SOON)</h3>
-					<label>
-						Info:
-						<br>
-						Make sure: 1. Multiplayer is enabled, 2. Anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
-						<br>
-						Once you click the 'Start Ship Delivery' button the bot will join your game after queue time and announce it in the game chat.
-						<br>
-						Then you need to leave the anomaly and select the option to travel to the bots system.
-						<br>
-						Your custom ship will wait for you on the spacestation and can be claimed for FREE from the NPC.
-					</label>
 					
 					<hr>
 					
-					<br><br>
+					<h4>
+						<label>
+							Info: Once the bot joins your lobby leave the anomaly and select the option to travel to the bots system.
+							<br>
+							Your custom ship will wait for you on the spacestation and can be claimed for FREE from the NPC.
+							<br>
+							<label>Note: You can use the <a href="https://metaidea.github.io/nms-ship-customizer/">SHIP CUSTOMIZER</a> web app to create your dream ship and receive a seed value.</label>
+						</label>
+					</h4>
 					
-					<label>Friend Code </label>
-					<input type="text" id="FriendCode" name="FriendCode" size="30" placeholder="XXXX-XXXX-XXXXX">
-					
-					<label>Gamemode </label>
-					<select name="gamemode" id="gamemode">
-						<option value="creative">Creative</option>
-						<option value="normal">Normal</option>
-						<option value="survival">Survival</option>
-						<option value="permadead">Permadead</option>
-					</select>
-					
-					<br><br>
+					<hr>
+					<br>
 					
 					<label>Ship Type </label>
 					<select name="shiptype" id="shiptype">
@@ -306,81 +309,50 @@
 					</select>
 					
 					<label>Ship Seed </label>
-					<input type="text" id="shipseed" name="shipseed" size="30" placeholder="0x123456789ABCDEF">	
+					<input type="text" id="shipseed" name="shipseed" size="50" placeholder="0x123456789ABCDEF">	
 					
 					<br><br>
 					
-					<label>Use the <a href="https://metaidea.github.io/nms-ship-customizer/">SHIP CUSTOMIZER</a> web app to create your dream ship and receive a seed value.</label>
+					<button type="button" id="StartShipTransfer">Create Ticket</button>
+					<input type="text" id="TicketBoxShipTransfer" name="TicketBoxShipTransfer" size="50" readonly="" placeholder="">
 					
 					<br><br>
-					
-					<button type="button" id="StartShipDelivery" disabled>Start Ship Delivery</button>
-					<input hidden type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
-					<a id="status" style="color:red">Status: Waiting for your Task.</a>
-					
-					<br><br><br>
-					<hr>
-					<label><a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord Community</a></label>
-					<br><br>
-					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
 				</div>
 			</div>
-			
-			
-			<br><br>
+
 			
 			<div class="main">
 				<div class="options">
 					<h3>🐣 Creature Egg Delivery Service 🐣 (COMING SOON)</h3>
-					<label>
-						Info:
-						<br>
-						Make sure: 1. Multiplayer is enabled, 2. Anyone can join, 3. Your game is open and you are waiting in the Anomaly/Nexus
-						<br>
-						Once you click the 'Start Item Transfer' button the bot will join your game after queue time and announce it in the game chat.
-						<br>
-						Then you will have 1 minute time to move in front of the service bot player and it will gift you the egg.
-					</label>
+					<hr>
+					
+					<h4>
+						<label>
+							Info: Wait until the bot physically spawns at the docking areas backside balcony in the nexus/anomaly.
+							<br>
+							Make sure to be as close as possible to the bot. It will send you the egg and leave.
+							<br>
+							<label>Note: You can use the <a href="https://metaidea.github.io/nms-ship-customizer/">CUSTOMIZER</a> web app to create your custom pet/creature and receive a seed value for the egg.</label>
+						</label>
+					</h4>
 					
 					<hr>
-					<br><br>
-					<label>Friend Code </label>
-					<input type="text" id="FriendCode" name="FriendCode" size="30" placeholder="XXXX-XXXX-XXXXX">
-					
-					<label>Gamemode </label>
-					<select name="gamemode" id="gamemode">
-						<option value="creative">Creative</option>
-						<option value="normal">Normal</option>
-						<option value="survival">Survival</option>
-						<option value="permadead">Permadead</option>
-					</select>
-					
-					<br><br>
+					<br>
 					
 					<label>Creature Type </label>
 					<select name="creaturetype" id="creaturetype">
 						<option>Diplo</option>
 					</select>
 					
-					<label>Seed </label>
+					<label>Creature Seed </label>
 					<input type="text" id="creatureseed" name="creatureseed" size="30" placeholder="0x123456789ABCDEF">	
 					
 					<br><br>
 					
-					<label>Use the <a href="https://metaidea.github.io/nms-ship-customizer/">CUSTOMIZER</a> web app to create your custom pet/creature and receive a seed value for the egg.</label>
+					<button type="button" id="StartEggTransfer">Create Ticket</button>
+					<input type="text" id="TicketBoxEggTransfer" name="TicketBoxEggTransfer" size="50" readonly="" placeholder="">
 					
 					<br><br>
-					
-					<!-- <button type="button" id="CreateBotCommand">Create Bot Command &amp; Copy</button>  -->
-					<button type="button" id="StartEggTransfer" disabled>Start Egg Transfer</button>
-					<input hidden type="text" id="CommandBox" name="CommandBox" size="50" readonly="" placeholder="Status: Waiting for your Task.">
-					<a id="status" style="color:red">Status: Waiting for your Task.</a>
-					
-					<br><br><br>
-					<hr>
-					<label><a href="https://discord.gg/GFvkBtneE4">NMS Creative and Sharing Hub Discord Community</a></label>
-					<br><br>
-					<label>Help to keep up this free service by becoming a <a href="https://www.patreon.com/metaidea">Patron of Mjstral aka Meta-Idea</a></label>
 				</div>
 			</div>
 			
@@ -535,40 +507,142 @@
 			LoadPortalGlyphCoordinatesIntoCanvas()
 		} document.getElementById("PortalAdressHex").addEventListener("input", GlyphHexEntered);
 
-		function CreateCommand() {
-			var Command = "transfer:" + document.getElementById("FriendCode").value + "," + document.getElementById("gamemode").value + ",0x" + PortalAdress + "," + document.getElementById("galaxy").value.split(' ')[0]
-			document.getElementById("CommandBox").value = Command
-			navigator.clipboard.writeText(Command)
+		
+		
+		
+		
+		var TimeLastCommand = 0
+		
+		function CreateLocationTransferCommand(ticketboxid) {
+			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
+			var Command = "ticket:" + TicketCode + ",transfer:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + ",0x" + PortalAdress + "," + document.getElementById("galaxy").value.split(' ')[0]
+			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
+			navigator.clipboard.writeText(TicketCode)
 			return Command
 		} 
 		
-		function CreateCommandTrigger() {
-			if (!(document.getElementById("FriendCode").value.length == 15 && PortalAdress.length == 12)) {
-				document.getElementById("CommandBox").value = "Error: Enter valid friend code and full portal adress"
-				return ""
+		function CreateLocationTransferTicket() {
+			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked) {
+				document.getElementById("TicketBoxLocationTransfer").value = "Confirm checkboxes in setup section."
+				return 
 			}
-			return CreateCommand()
+			var UnixTime = Math.round((new Date()).getTime()/1000)
+			if (TimeLastCommand + 10 >= UnixTime) {
+				document.getElementById("TicketBoxLocationTransfer").value = "Cooldown between ticket creations."
+				return 
+			}
+			if (!(document.getElementById("friendcode").value.length == 15 && PortalAdress.length == 12)) {
+				document.getElementById("TicketBoxLocationTransfer").value = "Error: Enter valid friend code and full portal adress"
+				return
+			}
+			return CreateLocationTransferCommand("TicketBoxLocationTransfer")
 		}
 		
-		function CreateCommandItemTransfer() {
-			var Command = "item:" + document.getElementById("FriendCode2").value + "," + document.getElementById("gamemode2").value + "," + document.getElementById("item").value + "," + document.getElementById("quantity").value
-			document.getElementById("CommandBox2").value = Command
-			navigator.clipboard.writeText(Command)
+		
+		function CreateItemTransferCommand(ticketboxid) {
+			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
+			var Command = "ticket:" + TicketCode + ",item:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("item").value + "," + document.getElementById("quantity").value
+			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
+			navigator.clipboard.writeText(TicketCode)
 			return Command
-		} 
-		
-		function CreateCommandTriggerItemTransfer() {
-			if (!(document.getElementById("FriendCode2").value.length == 15)) {
-				document.getElementById("CommandBox2").value = "Error: Enter valid friend code."
-				return ""
-			}
-			return CreateCommandItemTransfer()
 		}
+		
+		function CreateItemTransferTicket() {
+			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked) {
+				document.getElementById("TicketBoxItemTransfer").value = "Confirm checkboxes in setup section."
+				return 
+			}
+			var UnixTime = Math.round((new Date()).getTime()/1000)
+			if (TimeLastCommand + 10 >= UnixTime) {
+				document.getElementById("TicketBoxItemTransfer").value = "Cooldown between ticket creations."
+				return 
+			}
+			if (!(document.getElementById("friendcode").value.length == 15)) {
+				document.getElementById("TicketBoxItemTransfer").value = "Error: Enter valid friend code."
+				return
+			}
+			return CreateItemTransferCommand("TicketBoxItemTransfer")
+		}
+		
+		
+		
+		function CreateEggTransferCommand(ticketboxid) {
+			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
+			var Command = "ticket:" + TicketCode + ",egg:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("creaturetype").value + "," + document.getElementById("creatureseed").value
+			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
+			navigator.clipboard.writeText(TicketCode)
+			return Command
+		}
+		
+		function CreateEggTransferTicket() {
+			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked) {
+				document.getElementById("TicketBoxEggTransfer").value = "Confirm checkboxes in setup section."
+				return 
+			}
+			var UnixTime = Math.round((new Date()).getTime()/1000)
+			if (TimeLastCommand + 10 >= UnixTime) {
+				document.getElementById("TicketBoxEggTransfer").value = "Cooldown between ticket creations."
+				return 
+			}
+			if (!(document.getElementById("friendcode").value.length == 15)) {
+				document.getElementById("TicketBoxEggTransfer").value = "Error: Enter valid friend code."
+				return
+			}
+			return CreateEggTransferCommand("TicketBoxEggTransfer")
+		}
+		
+		
+		
+		function CreateShipTransferCommand(ticketboxid) {
+			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
+			var Command = "ticket:" + TicketCode + ",ship:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("shiptype").value + "," + document.getElementById("shipseed").value
+			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
+			navigator.clipboard.writeText(TicketCode)
+			return Command
+		}
+		
+		function CreateShipTransferTicket() {
+			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked) {
+				document.getElementById("TicketBoxShipTransfer").value = "Confirm checkboxes in setup section."
+				return 
+			}
+			var UnixTime = Math.round((new Date()).getTime()/1000)
+			if (TimeLastCommand + 10 >= UnixTime) {
+				document.getElementById("TicketBoxShipTransfer").value = "Cooldown between ticket creations."
+				return 
+			}
+			if (!(document.getElementById("friendcode").value.length == 15)) {
+				document.getElementById("TicketBoxShipTransfer").value = "Error: Enter valid friend code."
+				return
+			}
+			return CreateShipTransferCommand("TicketBoxShipTransfer")
+		}
+		
 		
 		if (CommandCreation) {
-			document.getElementById("StartLocationTransfer").addEventListener("click", CreateCommandTrigger);
-			document.getElementById("StartItemTransfer").addEventListener("click", CreateCommandTriggerItemTransfer);
+			document.getElementById("StartLocationTransfer").addEventListener("click", CreateLocationTransferTicket);
+			document.getElementById("StartItemTransfer").addEventListener("click", CreateItemTransferTicket);
+			document.getElementById("StartShipTransfer").addEventListener("click", CreateShipTransferTicket);
+			document.getElementById("StartEggTransfer").addEventListener("click", CreateEggTransferTicket);
+		}
+		
+		async function SendCommandToRelayChannel(botcommand,ticketcode,ticketboxid) {
+			const webhookUrl = 'https://discord.com/api/webhooks/981700833479626782/K321kOVJuULfD_drCgwWJXRqQrMJ6XjP3JzV4yVTVrOKCrTdDp3uT33mcuxgeRMvOBqT';
+
+			const response = await fetch(webhookUrl, {
+				method: 'POST',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify({content: "userid:" + UserID + "," + botcommand}),
+			});
 			
+			if (response.ok) {
+				document.getElementById(ticketboxid).value = ticketcode
+				TimeLastCommand = Math.round((new Date()).getTime()/1000)
+				localStorage.setItem("FriendcodeCached",document.getElementById("friendcode").value)
+				localStorage.setItem("GamemodeCached",document.getElementById("gamemode").value)
+			} else { 
+				document.getElementById(ticketboxid).value = "Error creating ticket code, retry."
+			}
 		}
 		
 		async function SendCommandToDiscordChannel(message) {
@@ -612,11 +686,20 @@
 			document.getElementById("StartLocationTransfer").addEventListener("click", SendToDiscordChannel);
 		}
 		
-		//const UserID = (Math.floor(Math.random() * 100000000000)).toString()//localStorage.getItem("UserID");
-		//if (!UserID) {
-			//UserID = (Math.floor(Math.random() * 100000000000)).toString()
-			//localStorage.setItem("UserID", UserID);
-		//}
+		if (localStorage.getItem("UserID")) {
+			var UserID = localStorage.getItem("UserID")
+		} else {
+			var UserID = (Math.floor(Math.random() * 100000000000)).toString()
+			localStorage.setItem("UserID", UserID);
+		}
+		
+		if (localStorage.getItem("FriendcodeCached")) {
+			document.getElementById("friendcode").value = localStorage.getItem("FriendcodeCached")
+		}
+		
+		if (localStorage.getItem("GamemodeCached")) {
+			document.getElementById("gamemode").value = localStorage.getItem("GamemodeCached")
+		}
 		
 		var QueueTime = 0
 		var InSystemWaitTime = 60
