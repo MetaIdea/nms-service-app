@@ -482,7 +482,7 @@
 		function GlyphSelected(event) {
 			if (PortalAdress.length < 12) {
 				var targetElement = event.target || event.srcElement;
-				var GlyphHex = targetElement.id.replace("glyph_","")
+				var GlyphHex = targetElement.id.replace("button_", "").replace("glyph_","")
 				PortalAdress = PortalAdress + GlyphHex
 				
 				document.getElementById("PortalAdressHex").value = PortalAdress
