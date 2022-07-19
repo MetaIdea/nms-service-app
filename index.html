@@ -146,7 +146,7 @@
 						<option value="normal">Normal</option>
 						<option value="creative">Creative</option>
 						<option value="survival">Survival</option>
-						<option value="permadead">Permadead</option>
+						<option value="permadead">Permadeath</option>
 					</select>
 					
 					<br><br>
@@ -622,8 +622,8 @@
 		if (CommandCreation) {
 			document.getElementById("StartLocationTransfer").addEventListener("click", CreateLocationTransferTicket);
 			document.getElementById("StartItemTransfer").addEventListener("click", CreateItemTransferTicket);
-			document.getElementById("StartShipTransfer").addEventListener("click", CreateShipTransferTicket);
-			document.getElementById("StartEggTransfer").addEventListener("click", CreateEggTransferTicket);
+			//document.getElementById("StartShipTransfer").addEventListener("click", CreateShipTransferTicket);
+			//document.getElementById("StartEggTransfer").addEventListener("click", CreateEggTransferTicket);
 		}
 		
 		async function SendCommandToRelayChannel(botcommand,ticketcode,ticketboxid) {
