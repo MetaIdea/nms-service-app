@@ -480,10 +480,10 @@
 			
 			["Cafe 42", "0x413AFABA6693", "Euclid"],
 			["Amino Hub", "0x1022039BAE4B", "Euclid"],
-			["CELAB Galactic Industries ", "0x103DFAE346AA", "Euclid"],
-			["Civil Security Fleet ", "0x1087FCB2E4DF", "Euclid"],
+			["CELAB Galactic Industries", "0x103DFAE346AA", "Euclid"],
+			["Civil Security Fleet", "0x1087FCB2E4DF", "Euclid"],
 			["Empire of Eld", "0x10537FCD77FD", "Euclid"],
-			["The Enigma Alliance ", "0x1010FCB2C4B5", "Euclid"],
+			["The Enigma Alliance", "0x1010FCB2C4B5", "Euclid"],
 			["Intergalactic Travellers Foundation", "0x1048FB952E42", "Euclid"],
 			["Morley Celestial Bureau", "0x1079DDFF700E", "Euclid"],
 			["Nomad Foxes", "0x109C04ABC48C", "Euclid"],
@@ -507,14 +507,19 @@
 			["Stream of P0ne", "0x101C02418A50", "Euclid"],
 			["Vulf Empire", "0x106F015EE355", "Euclid"],
 			["Fatalitan Empire", "0x105EFDFBD187", "Euclid"],
-			["Hyades Agriculture Society ", "0x10F901ADBC00", "Hyades"],
-			["Sobek Colonial Confederation", "0x", "Budullangr"],
-			["Galactic Vanguard", "0x", "Eissentam"],
+			["Hyades Agriculture Society", "0x10F901ADBC00", "Hyades"],
+			["Sobek Colonial Confederation", "0x105100F48930", "Budullangr"],
+			["Galactic Vanguard", "0x100F01FF8000", "Eissentam"],
 			["Empire of the Sacred Star", "0x", "Eissentam"],
 			["Solis Dominion", "0x1040032CC66D", "Eissentam"],
 			["Galactic Pathfinders", "0x116402001FF8", "Euclid"],
 			
-			["Modding Hub - Artifices Careli ", "0x108A01E5B6BE", "Euclid"],
+			["Hyades Travellers Foundation", "0x1211FA002005", "Hyades"],
+			["Free Xparsian Star Order", "0x1106AA1C1E0A", "Eissentam"],
+			//["United Omegan Xparsian Empire", "0x???", "Eissentam"],
+			["The Pilgrim Star", "0x109A039BAE4B", "Eissentam"],
+			
+			["Modding Hub - Artifices Careli", "0x108A01E5B6BE", "Euclid"],
 			["Battlegroup Savannah", "0x11D62F57CECA", "Nasmilete"],
 			["NMS Wallpaper Hub", "0x1037FEA693A2", "Eissentam"],
 			["Pan Galactic Star Cabs Travel Plaza", "0x00B018FFA000", "Nepitzaspru"],
@@ -609,6 +614,7 @@
 		
 		
 		var TimeLastCommand = 0
+		var CooldownTime = 10
 		
 		function CreateLocationTransferCommand(ticketboxid) {
 			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
@@ -624,7 +630,7 @@
 				return 
 			}
 			var UnixTime = Math.round((new Date()).getTime()/1000)
-			if (TimeLastCommand + 10 >= UnixTime) {
+			if (TimeLastCommand + CooldownTime >= UnixTime) {
 				document.getElementById("TicketBoxLocationTransfer").value = "Cooldown between ticket creations."
 				return 
 			}
@@ -650,7 +656,7 @@
 				return 
 			}
 			var UnixTime = Math.round((new Date()).getTime()/1000)
-			if (TimeLastCommand + 10 >= UnixTime) {
+			if (TimeLastCommand + CooldownTime >= UnixTime) {
 				document.getElementById("TicketBoxItemTransfer").value = "Cooldown between ticket creations."
 				return 
 			}
@@ -677,7 +683,7 @@
 				return 
 			}
 			var UnixTime = Math.round((new Date()).getTime()/1000)
-			if (TimeLastCommand + 10 >= UnixTime) {
+			if (TimeLastCommand + CooldownTime >= UnixTime) {
 				document.getElementById("TicketBoxEggTransfer").value = "Cooldown between ticket creations."
 				return 
 			}
@@ -704,7 +710,7 @@
 				return 
 			}
 			var UnixTime = Math.round((new Date()).getTime()/1000)
-			if (TimeLastCommand + 10 >= UnixTime) {
+			if (TimeLastCommand + CooldownTime >= UnixTime) {
 				document.getElementById("TicketBoxShipTransfer").value = "Cooldown between ticket creations."
 				return 
 			}
