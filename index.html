@@ -679,7 +679,7 @@
 				document.getElementById("TicketBoxLocationTransfer").value = "Cooldown between ticket creations."
 				return 
 			}
-			if (!(document.getElementById("friendcode").value.length == 15 && PortalAdress.length == 12)) {
+			if (!((document.getElementById("friendcode").value.length == 15 || document.getElementById("friendcode").value.length == 14) && PortalAdress.length == 12)) {
 				document.getElementById("TicketBoxLocationTransfer").value = "Error: Enter valid friend code and full portal adress"
 				return
 			}
@@ -705,7 +705,7 @@
 				document.getElementById("TicketBoxItemTransfer").value = "Cooldown between ticket creations."
 				return 
 			}
-			if (!(document.getElementById("friendcode").value.length == 15)) {
+			if (!(document.getElementById("friendcode").value.length == 15 || document.getElementById("friendcode").value.length == 14)) {
 				document.getElementById("TicketBoxItemTransfer").value = "Error: Enter valid friend code."
 				return
 			}
@@ -732,7 +732,7 @@
 				document.getElementById("TicketBoxEggTransfer").value = "Cooldown between ticket creations."
 				return 
 			}
-			if (!(document.getElementById("friendcode").value.length == 15)) {
+			if (!(document.getElementById("friendcode").value.length == 15 || document.getElementById("friendcode").value.length == 14)) {
 				document.getElementById("TicketBoxEggTransfer").value = "Error: Enter valid friend code."
 				return
 			}
@@ -759,7 +759,7 @@
 				document.getElementById("TicketBoxShipTransfer").value = "Cooldown between ticket creations."
 				return 
 			}
-			if (!(document.getElementById("friendcode").value.length == 15)) {
+			if (!(document.getElementById("friendcode").value.length == 15 || document.getElementById("friendcode").value.length == 14)) {
 				document.getElementById("TicketBoxShipTransfer").value = "Error: Enter valid friend code."
 				return
 			}
