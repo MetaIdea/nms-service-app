@@ -233,7 +233,7 @@
 						<label>
 							Info: To use the services you create a ticket code with this web app.
 							<br>
-							You then copy and paste this code into the discord chat channel <a href="https://discord.gg/2eKQfTyrMX">🤖nms-service-bot</a>.
+							Upon creation enter this code into the discord chat channel <a href="https://discord.gg/2eKQfTyrMX">🤖nms-service-bot</a>.
 							<br>
 							The bot will join your game session and the free service is carried out. Very simple.
 						</label>
@@ -397,15 +397,15 @@
 			
 			<div class="main">
 				<div class="options">
-					<h3>🚀 Ship Delivery Service 🚀 (COMING SOON)</h3>
+					<h3>🚀 Ship Delivery Service 🚀</h3>
 					
 					<hr>
 					
 					<h4>
 						<label>
-							Info: Once the bot joins your lobby leave the anomaly and select the option to travel to the bots system.
+							Info: Once the bot joins your lobby leave the anomaly after 10 seconds and select the option to travel to the bots system.
 							<br>
-							Your custom ship will wait for you on the spacestation and can be claimed for FREE from the NPC.
+							Your custom ship will wait for you on the spacestation and can be claimed for FREE from the NPC as soon as the bot notifies you.
 							<br>
 							<label>Note: You can use the <a href="https://metaidea.github.io/nms-ship-customizer/">SHIP CUSTOMIZER</a> web app to create your dream ship and receive a seed value.</label>
 						</label>
@@ -423,7 +423,7 @@
 						<option>Exotic</option>
 						<option>Living</option>
 						<option>Solar</option>
-						<option>Golden Vector</option>
+						<option>GoldenVector</option>
 					</select>
 					
 					<label>Ship Seed </label>
@@ -676,7 +676,7 @@
 			}
 			var UnixTime = Math.round((new Date()).getTime()/1000)
 			if (TimeLastCommand + CooldownTime >= UnixTime) {
-				document.getElementById("TicketBoxLocationTransfer").value = "Cooldown between ticket creations."
+				document.getElementById("TicketBoxLocationTransfer").value = "Cooldown between tickets."
 				return 
 			}
 			if (!((document.getElementById("friendcode").value.length == 15 || document.getElementById("friendcode").value.length == 14) && PortalAdress.length == 12)) {
@@ -702,7 +702,7 @@
 			}
 			var UnixTime = Math.round((new Date()).getTime()/1000)
 			if (TimeLastCommand + CooldownTime >= UnixTime) {
-				document.getElementById("TicketBoxItemTransfer").value = "Cooldown between ticket creations."
+				document.getElementById("TicketBoxItemTransfer").value = "Cooldown between tickets."
 				return 
 			}
 			if (!(document.getElementById("friendcode").value.length == 15 || document.getElementById("friendcode").value.length == 14)) {
@@ -729,7 +729,7 @@
 			}
 			var UnixTime = Math.round((new Date()).getTime()/1000)
 			if (TimeLastCommand + CooldownTime >= UnixTime) {
-				document.getElementById("TicketBoxEggTransfer").value = "Cooldown between ticket creations."
+				document.getElementById("TicketBoxEggTransfer").value = "Cooldown between tickets."
 				return 
 			}
 			if (!(document.getElementById("friendcode").value.length == 15 || document.getElementById("friendcode").value.length == 14)) {
@@ -756,7 +756,7 @@
 			}
 			var UnixTime = Math.round((new Date()).getTime()/1000)
 			if (TimeLastCommand + CooldownTime >= UnixTime) {
-				document.getElementById("TicketBoxShipTransfer").value = "Cooldown between ticket creations."
+				document.getElementById("TicketBoxShipTransfer").value = "Cooldown between tickets."
 				return 
 			}
 			if (!(document.getElementById("friendcode").value.length == 15 || document.getElementById("friendcode").value.length == 14)) {
@@ -770,7 +770,7 @@
 		if (CommandCreation) {
 			document.getElementById("StartLocationTransfer").addEventListener("click", CreateLocationTransferTicket);
 			document.getElementById("StartItemTransfer").addEventListener("click", CreateItemTransferTicket);
-			//document.getElementById("StartShipTransfer").addEventListener("click", CreateShipTransferTicket);
+			document.getElementById("StartShipTransfer").addEventListener("click", CreateShipTransferTicket);
 			//document.getElementById("StartEggTransfer").addEventListener("click", CreateEggTransferTicket);
 		}
 
