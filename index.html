@@ -427,7 +427,7 @@
 					</select>
 					
 					<label>Ship Seed </label>
-					<input type="text" id="shipseed" name="shipseed" size="50" placeholder="0x123456789ABCDEF">	
+					<input type="text" id="shipseed" name="shipseed" size="50" placeholder="0x123456789ABCDEF" maxlength="18">	
 					
 					<br><br>
 					
@@ -459,7 +459,66 @@
 					
 					<label>Creature Type </label>
 					<select name="creaturetype" id="creaturetype">
-						<option>Diplo</option>
+						<option value="ANTELOPE">Antelope</option>
+						<option value="BEETLE">Beetle</option>
+						<option value="BIRD">Bird</option>
+						<option value="BLOB">Blob</option>
+						<option value="BONECAT">Bonecat</option>
+						<option value="BUTTERFLOCK">Butterflock</option>
+						<option value="BUTTERFLY">Butterfly</option>
+						<option value="CAT">Cat</option>
+						<option value="COW">Cow</option>
+						<option value="CRAB">Crab</option>
+						<option value="TRICERATOPS">Diplodocus</option>
+						<option value="DRILL">Drill</option>
+						<option value="FIEND">Fiend</option>
+						<option value="FIENDFISHBIG">Fiendfishbig</option>
+						<option value="FIENDFISHSMALL">Fiendfishsmall</option>
+						<option value="FISH">Fish</option>
+						<option value="FISHFLOCK">Fishflock</option>
+						<option value="FLOATER">Floater</option>
+						<option value="FLOATSPIDER">Floatspider</option>
+						<option value="FLYINGBEETLE">Flyingbeetle</option>
+						<option value="FLYINGLIZARD">Flyinglizard</option>
+						<option value="FLYINGSNAKE">Flyingsnake</option>
+						<option value="GRUNT">Grunt</option>
+						<option value="JELLYFISH">Jellyfish</option>
+						<option value="LARGEBUTTERFLY">Largebutterfly</option>
+						<option value="MINIDRONE">Minidrone</option>
+						<option value="MINIFIEND">Minifiend</option>
+						<option value="MOLE">Mole</option>
+						<option value="PLOUGH">Plough</option>
+						<option value="PROTODIGGER">Protodigger</option>
+						<option value="PROTOFLYER">Protoflyer</option>
+						<option value="PROTOROLLER">Protoroller</option>
+						<option value="ROBOTANTELOPE">Robotantelope</option>
+						<option value="ROCKCREATURE">Rockcreature</option>
+						<option value="RODENT">Rodent</option>
+						<option value="SANDWORM">Sandworm</option>
+						<option value="SCUTTLER">Scuttler</option>
+						<option value="SEASNAKE">Seasnake</option>
+						<option value="SHARK">Shark</option>
+						<option value="SIXLEGCAT">Sixlegcat</option>
+						<option value="SIXLEGCOW">Sixlegcow</option>
+						<option value="SLUG">Slug</option>
+						<option value="SMALLBIRD">Smallbird</option>
+						<option value="SPIDER">Spider</option>
+						<option value="STRIDER">Strider</option>
+						<option value="SWIMCOW">Swimcow</option>
+						<option value="SWIMRODENT">Swimrodent</option>
+						<option value="TREX">Trex</option>
+						<option value="TRICERATOPS">Triceratops</option>
+						<option value="TRICERATOPS">Turtle</option>
+						<option value="TWOLEGANTELOPE">Twolegantelope</option>
+						<option value="SHARK">Whale</option>
+						<option value="WEIRDBUTTERFLY">Weirdbutterfly</option>
+						<option value="WEIRDCRYSTAL">Weirdcrystal</option>
+						<option value="WEIRDFLOAT">Weirdfloat</option>
+						<option value="WEIRDROLL">Weirdroll</option>
+						<option value="QUAD_PET">Quad Pet</option>
+						<option value="QUADRUPED">Quadruped</option>
+						<option value="WALKER">Walker</option>
+						<option value="DRONE">Drone</option>
 					</select>
 					
 					<label>Creature Seed </label>
@@ -651,12 +710,27 @@
 		
 		function GlyphHexEntered() {
 			PortalAdress = document.getElementById("PortalAdressHex").value
+			PortalAdress = PortalAdress.toUpperCase().replace('0X','').match(/[0-9A-Fa-f]*/g).join("").substring(0,12)
+			document.getElementById("PortalAdressHex").value = PortalAdress
 			LoadPortalGlyphCoordinatesIntoCanvas()
 		} document.getElementById("PortalAdressHex").addEventListener("input", GlyphHexEntered);
-
 		
+		function SeedVerify(event) {
+			var EventElement = (event.target || event.srcElement)
+			EventElement.value = "0x" + EventElement.value.toUpperCase().replace('0X','').match(/[0-9A-Fa-f]*/g).join("").substring(0,16)
+		}
 		
+		document.getElementById("shipseed").addEventListener("input", SeedVerify);
+		document.getElementById("shipseed").addEventListener("paste", SeedVerify);
+		document.getElementById("creatureseed").addEventListener("input", SeedVerify);
+		document.getElementById("creatureseed").addEventListener("paste", SeedVerify);
 		
+		function QuantityNumberVerify(event) {
+			var EventElement = (event.target || event.srcElement)
+			EventElement.value = EventElement.value.match(/[0-9]*/g).join("")
+		}
+		
+		document.getElementById("quantity").addEventListener("input", QuantityNumberVerify);
 		
 		var TimeLastCommand = 0
 		var CooldownTime = 10
@@ -689,7 +763,12 @@
 		
 		function CreateItemTransferCommand(ticketboxid) {
 			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
-			var Command = "ticket:" + TicketCode + ",item:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("item").value + "," + document.getElementById("quantity").value
+			var Quantity = document.getElementById("quantity").value
+			if (Quantity.length == 0) {
+				document.getElementById("TicketBoxItemTransfer").value = "No Quantity"
+				return "ERROR"
+			}
+			var Command = "ticket:" + TicketCode + ",item:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("item").value + "," + 
 			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
 			navigator.clipboard.writeText(TicketCode)
 			return Command
@@ -716,7 +795,11 @@
 		
 		function CreateEggTransferCommand(ticketboxid) {
 			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
-			var Command = "ticket:" + TicketCode + ",egg:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("creaturetype").value + "," + document.getElementById("creatureseed").value
+			
+			var CreaturetypeOptions = document.getElementById("creaturetype")
+			var Creaturetype = CreaturetypeOptions.options[CreaturetypeOptions.selectedIndex].value
+
+			var Command = "ticket:" + TicketCode + ",egg:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + Creaturetype + "," + document.getElementById("creatureseed").value
 			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
 			navigator.clipboard.writeText(TicketCode)
 			return Command
@@ -742,6 +825,18 @@
 		
 		
 		function CreateShipTransferCommand(ticketboxid) {
+			var ShipSeed = document.getElementById("shipseed").value.toUpperCase()
+			if (ShipSeed.length == 0 || (ShipSeed.length == 2 && ShipSeed.includes("0X"))) {
+				document.getElementById("TicketBoxShipTransfer").value = "Empty seed value"
+				return "ERROR"
+			}
+			if (ShipSeed.includes(",") || ShipSeed.includes("custom") || ShipSeed.includes(":")) {
+				document.getElementById("TicketBoxShipTransfer").value = "Use SEED not search command !"
+				return "ERROR"
+			}
+			
+			SeedVerify()
+			
 			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
 			var Command = "ticket:" + TicketCode + ",ship:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("shiptype").value + "," + document.getElementById("shipseed").value
 			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
