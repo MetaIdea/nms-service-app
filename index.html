@@ -835,7 +835,7 @@
 				return "ERROR"
 			}
 			
-			SeedVerify()
+			document.getElementById("shipseed").value = "0x" + document.getElementById("shipseed").value.toUpperCase().replace('0X','').match(/[0-9A-Fa-f]*/g).join("").substring(0,16)
 			
 			var TicketCode = (Math.floor(Math.random() * 100000)).toString()
 			var Command = "ticket:" + TicketCode + ",ship:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("shiptype").value + "," + document.getElementById("shipseed").value
