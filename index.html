@@ -768,7 +768,7 @@
 				document.getElementById("TicketBoxItemTransfer").value = "No Quantity"
 				return "ERROR"
 			}
-			var Command = "ticket:" + TicketCode + ",item:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("item").value + "," + 
+			var Command = "ticket:" + TicketCode + ",item:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + document.getElementById("item").value + "," + Quantity
 			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
 			navigator.clipboard.writeText(TicketCode)
 			return Command
