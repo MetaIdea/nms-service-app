@@ -717,9 +717,11 @@
 		
 		function SeedVerify(event) {
 			var EventElement = (event.target || event.srcElement)
-			EventElement.value = "0x" + EventElement.value.toUpperCase().replace('0X','').match(/[0-9A-Fa-f]*/g).join("").substring(0,16)
+			if (EventElement.value.length > 0) {
+				EventElement.value = "0x" + EventElement.value.toUpperCase().replace('0X','').match(/[0-9A-Fa-f]*/g).join("").substring(0,16)
+			}
 		}
-		
+
 		document.getElementById("shipseed").addEventListener("input", SeedVerify);
 		document.getElementById("shipseed").addEventListener("paste", SeedVerify);
 		document.getElementById("creatureseed").addEventListener("input", SeedVerify);
