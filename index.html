@@ -382,7 +382,7 @@
 					</select>
 					
 					<label for="quantity">Quantity </label>
-					<input type="number" id="quantity" name="quantity" min="1" max="99999999" value="1" pattern="[0-9]+">
+					<input type="number" id="quantity" name="quantity" min="1" max="99999999" value="1" pattern="[0-9]+" onkeydown="return false">
 					
 					<br><br>
 					
@@ -441,7 +441,7 @@
 			
 			<div class="main">
 				<div class="options">
-					<h3>🐣 Creature Egg Delivery Service 🐣 (COMING SOON)</h3>
+					<h3>🐣 Creature Egg Delivery Service 🐣</h3>
 					<hr>
 					
 					<h4>
@@ -469,7 +469,7 @@
 						<option value="CAT">Cat</option>
 						<option value="COW">Cow</option>
 						<option value="CRAB">Crab</option>
-						<option value="TRICERATOPS">Diplodocus</option>
+							<option value="TRICERATOPS">Diplodocus</option>
 						<option value="DRILL">Drill</option>
 						<option value="FIEND">Fiend</option>
 						<option value="FIENDFISHBIG">Fiendfishbig</option>
@@ -491,6 +491,7 @@
 						<option value="PROTODIGGER">Protodigger</option>
 						<option value="PROTOFLYER">Protoflyer</option>
 						<option value="PROTOROLLER">Protoroller</option>
+							<option value="TRICERATOPS">Rhino</option>
 						<option value="ROBOTANTELOPE">Robotantelope</option>
 						<option value="ROCKCREATURE">Rockcreature</option>
 						<option value="RODENT">Rodent</option>
@@ -506,9 +507,10 @@
 						<option value="STRIDER">Strider</option>
 						<option value="SWIMCOW">Swimcow</option>
 						<option value="SWIMRODENT">Swimrodent</option>
+							<option value="TRICERATOPS">Tapir</option>
 						<option value="TREX">Trex</option>
 						<option value="TRICERATOPS">Triceratops</option>
-						<option value="TRICERATOPS">Turtle</option>
+							<option value="TRICERATOPS">Turtle</option>
 						<option value="TWOLEGANTELOPE">Twolegantelope</option>
 						<option value="SHARK">Whale</option>
 						<option value="WEIRDBUTTERFLY">Weirdbutterfly</option>
@@ -523,6 +525,9 @@
 					
 					<label>Creature Seed </label>
 					<input type="text" id="creatureseed" name="creatureseed" size="30" placeholder="0x123456789ABCDEF">	
+					
+					<label for="scale">Scale </label>
+					<input type="number" step="0.1" id="scale" name="scale" min="0.1" max="10.0" value="1" pattern="[0-9]+" onkeydown="return false">
 					
 					<br><br>
 					
@@ -800,8 +805,10 @@
 			
 			var CreaturetypeOptions = document.getElementById("creaturetype")
 			var Creaturetype = CreaturetypeOptions.options[CreaturetypeOptions.selectedIndex].value
+			
+			var CreatureSize = String(parseFloat(document.getElementById("scale").value))
 
-			var Command = "ticket:" + TicketCode + ",egg:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + Creaturetype + "," + document.getElementById("creatureseed").value
+			var Command = "ticket:" + TicketCode + ",egg:" + document.getElementById("friendcode").value + "," + document.getElementById("gamemode").value + "," + Creaturetype + "," + document.getElementById("creatureseed").value + "," + CreatureSize
 			SendCommandToRelayChannel(Command,TicketCode,ticketboxid)
 			navigator.clipboard.writeText(TicketCode)
 			return Command
@@ -868,7 +875,7 @@
 			document.getElementById("StartLocationTransfer").addEventListener("click", CreateLocationTransferTicket);
 			document.getElementById("StartItemTransfer").addEventListener("click", CreateItemTransferTicket);
 			document.getElementById("StartShipTransfer").addEventListener("click", CreateShipTransferTicket);
-			//document.getElementById("StartEggTransfer").addEventListener("click", CreateEggTransferTicket);
+			document.getElementById("StartEggTransfer").addEventListener("click", CreateEggTransferTicket);
 		}
 
 		async function SendCommandToRelayChannel(botcommand,ticketcode,ticketboxid) {
