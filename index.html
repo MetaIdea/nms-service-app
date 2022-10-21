@@ -248,13 +248,9 @@
 					
 					<label>Gamemode </label>
 					<select name="gamemode" id="gamemode">
-						<option value="normal">Normal</option>
-						<option value="creative">Creative</option>
-						<option value="survival">Survival</option>
+						<option value="normal">Normal/Custom/Creative/Survival/Relaxed</option>
 						<option value="permadead">Permadeath</option>
 						<option value="expedition">Expedition</option>
-						<option value="relaxed">Relaxed</option>7
-						<option value="custom">Custom</option>
 					</select>
 					
 					<br><br>
@@ -266,6 +262,11 @@
 					
 					<input type="checkbox" id="checkbox_mp_enabled" name="checkbox_mp_enabled">
 					<label for="checkbox_mp_enabled"> Confirm multiplayer is enabled and anyone can join your game.</label><br>
+					
+					<br>
+					
+					<input type="checkbox" id="checkbox_friend_code_added" name="checkbox_friend_code_added">
+					<label for="checkbox_friend_code_added"> NEW: Confirm service bots friend code added. The friend code is only accessible for <a href="https://www.patreon.com/metaidea">patrons</a> currently in this <a href="https://discord.com/channels/627059745160953866/1032968475708231690">secret discord channel</a><br><br>WHY ? With the NMS update 4.0 the mutliplayer setting "Who can join | Anyone" is broken in the game and even after mutliple bug reports<br>they have not fixed the bug yet. Therefore access to the service bot with his friend code is only granted to a trusted circle of people to avoid<br>griefers that could disturb bot operations. The bot will naturally and automatially work again free for everyone when this bug gets fixed by the<br>game developers and the service bot is able to join anyone without being friended on both sides.</label><br>
 					
 					<br><hr><br>
 					
@@ -432,7 +433,7 @@
 						<option>Living</option>
 						<option>Solar</option>
 						<option>GoldenVector</option>
-						<option>SwitchFighter</option>
+						<option>SwitchShip</option>
 						<option>OrbExplorer</option>
 						<option>OrbExotic</option>
 					</select>
@@ -824,7 +825,7 @@
 		} 
 		
 		function CreateLocationTransferTicket() {
-			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked) {
+			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked || !document.getElementById("checkbox_friend_code_added").checked) {
 				document.getElementById("TicketBoxLocationTransfer").value = "Confirm checkboxes in setup section."
 				return 
 			}
@@ -866,7 +867,7 @@
 		}
 		
 		function CreateItemTransferTicket() {
-			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked) {
+			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked || !document.getElementById("checkbox_friend_code_added").checked) {
 				document.getElementById("TicketBoxItemTransfer").value = "Confirm checkboxes in setup section."
 				return 
 			}
@@ -908,7 +909,7 @@
 		}
 		
 		function CreateEggTransferTicket() {
-			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked) {
+			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked || !document.getElementById("checkbox_friend_code_added").checked) {
 				document.getElementById("TicketBoxEggTransfer").value = "Confirm checkboxes in setup section."
 				return 
 			}
@@ -947,7 +948,7 @@
 		}
 		
 		function CreateShipTransferTicket() {
-			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked) {
+			if (!document.getElementById("checkbox_mp_enabled").checked || !document.getElementById("checkbox_game_ready").checked || !document.getElementById("checkbox_friend_code_added").checked) {
 				document.getElementById("TicketBoxShipTransfer").value = "Confirm checkboxes in setup section."
 				return 
 			}
